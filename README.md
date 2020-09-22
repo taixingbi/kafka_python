@@ -25,6 +25,10 @@ bin/kafka-console-producer.sh --topic test2 --bootstrap-server localhost:9092
 bin/kafka-console-consumer.sh --topic test2 --from-beginning --bootstrap-server 54.91.38.33:9092
 
 
+advertised.listeners=PLAINTEXT://ec2-54-91-38-33.compute-1.amazonaws.com:9092
+
+
+
 
 
 
