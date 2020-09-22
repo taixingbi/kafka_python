@@ -9,8 +9,9 @@ import json
 class KafkaClass:
     def __init__(self):
         print("\n--------------------------Kafka--------------------------")
-        #self.bootstrap_servers= ['localhost:9092']
-        self.bootstrap_servers= ['54.91.38.33:9092','54.91.38.33:9093', '54.91.38.33:9094']
+        # self.ip= 'localhost'
+        self.ip= '54.91.38.33'
+        self.bootstrap_servers= [self.ip+':9092',self.ip+':9093', self.ip+':9094']
         self.topic= 'test'
         print('bootstrap_servers: ', self.bootstrap_servers)
         print('topic: ', self.topic)
