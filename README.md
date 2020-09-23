@@ -15,8 +15,8 @@ pip install -r requirements.txt
 ```
 ### run api
 ```
-python producer
-python consumer
+python producer.py
+python consumer.py
 ```
 
 
