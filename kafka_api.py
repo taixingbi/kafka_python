@@ -13,7 +13,7 @@ class KafkaClass:
         self.ip= 'ec2-54-91-38-33.compute-1.amazonaws.com'
         
         #self.ip= 'localhost'
-        self.bootstrap_servers= [self.ip+':9092',self.ip+':9093', self.ip+':9094']
+        self.bootstrap_servers= [self.ip+':9092']
         #self.bootstrap_servers= [ '54.91.38.33:9092', '54.91.38.33:9093', '54.91.38.33:9094']
 
         self.topic= 'test'
