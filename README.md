@@ -1,9 +1,16 @@
 
-### run pip shell
+### run pip local
 ```
 python3 -m venv myvenv
 source myvenv/bin/activate
 pip install -r requirements.txt
+```
+
+### run pip ubuntu
+```
+python3.6 -m venv my_env
+source my_env/bin/activate
+
 ```
 
 ### ubuntu run pip
