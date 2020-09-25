@@ -48,7 +48,7 @@ class KafkaClass:
 
 
         # To consume latest messages and auto-commit offsets
-        consumer = KafkaConsumer(topic= self.topic,                                
+        consumer = KafkaConsumer(self.topic,                                
                                 security_protocol='SSL', 
                                 group_id='my-group',
                                 bootstrap_servers= self.bootstrap_servers)
