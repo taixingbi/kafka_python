@@ -26,7 +26,8 @@ class KafkaClass:
 
     def producer(self, data):
         print("producer..")
-        producer = KafkaProducer(bootstrap_servers= self.bootstrap_servers )
+        #producer = KafkaProducer(bootstrap_servers= self.bootstrap_servers )
+        producer = KafkaProducer(security_protocol='SSL', bootstrap_servers= self.bootstrap_servers )
 
         topic= self.topic
         print(data)
@@ -47,7 +48,9 @@ class KafkaClass:
 
 
         # To consume latest messages and auto-commit offsets
-        consumer = KafkaConsumer(self.topic,
+        consumer = KafkaConsumer(
+                                security_protocol='SSL', 
+                                self.topic,
                                 group_id='my-group',
                                 bootstrap_servers= self.bootstrap_servers)
         for message in consumer:
