@@ -25,7 +25,7 @@ class KafkaClass:
 
         self.topic= 'AWSKafkaTutorialTopic'
         self.security_protocol= 'SSL'
-        self.api_version= (1,4,7)
+        self.api_version= (0,10,1)
         
         print(self.api_version)
         print('bootstrap_servers: ', self.bootstrap_servers)
