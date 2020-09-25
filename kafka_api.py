@@ -17,7 +17,10 @@ class KafkaClass:
         #self.ip= 'b-2.demo-cluster-1.aiagr3.c10.kafka.us-east-1.amazonaws.com:9092'
         
         #self.bootstrap_servers=['b-2.demo-cluster-1.aiagr3.c10.kafka.us-east-1.amazonaws.com:9092', 'b-1.demo-cluster-1.aiagr3.c10.kafka.us-east-1.amazonaws.com:9092']
-        self.bootstrap_servers=['b-3.awskafkatutorialclust.dl3id5.c10.kafka.us-east-1.amazonaws.com:9094','b-2.awskafkatutorialclust.dl3id5.c10.kafka.us-east-1.amazonaws.com:9094','b-1.awskafkatutorialclust.dl3id5.c10.kafka.us-east-1.amazonaws.com:9094']
+        self.bootstrap_servers=['b-1.awskafkatutorialclust.bwvs6a.c10.kafka.us-east-1.amazonaws.com:9094',
+                                'b-2.awskafkatutorialclust.bwvs6a.c10.kafka.us-east-1.amazonaws.com:9094',
+                                'b-3.awskafkatutorialclust.bwvs6a.c10.kafka.us-east-1.amazonaws.com:9094']
+        
         #self.bootstrap_servers= [ '54.91.38.33:9092', '54.91.38.33:9093', '54.91.38.33:9094']
 
         self.topic= 'AWSKafkaTutorialTopic'
