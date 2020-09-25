@@ -25,6 +25,7 @@ class KafkaClass:
 
         self.topic= 'AWSKafkaTutorialTopic'
         self.security_protocol= 'SSL'
+        self.api_version= (1,4,7)
 
         print('bootstrap_servers: ', self.bootstrap_servers)
         print('topic: ', self.topic)
@@ -32,7 +33,9 @@ class KafkaClass:
     def producer(self, data):
         print("producer..")
         #producer = KafkaProducer(bootstrap_servers= self.bootstrap_servers )
-        producer = KafkaProducer(security_protocol= self.security_protocol, bootstrap_servers= self.bootstrap_servers )
+        producer = KafkaProducer(security_protocol= self.security_protocol, 
+                                 bootstrap_servers= self.bootstrap_servers,
+                                 api_version=self.api_version)
 
         topic= self.topic
         print(data)
@@ -56,7 +59,9 @@ class KafkaClass:
         consumer = KafkaConsumer(self.topic,                                
                                 security_protocol= self.security_protocol, 
                                 group_id='my-group',
-                                bootstrap_servers= self.bootstrap_servers)
+                                bootstrap_servers= self.bootstrap_servers,
+                                api_version=self.api_version)
+
         for message in consumer:
             print("\n--------------consumer-------------")
             print('bootstrap_servers: ', self.bootstrap_servers)
