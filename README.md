@@ -46,6 +46,11 @@ advertised.listeners=PLAINTEXT://ec2-54-91-38-33.compute-1.amazonaws.com:9092
 
 
 
+##### kill port 
+sudo lsof -i -P -n | grep LISTEN
+kill -9 id
+
+
 
 
 
