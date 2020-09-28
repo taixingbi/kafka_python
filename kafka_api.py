@@ -26,35 +26,39 @@ class KafkaClass:
         self.topic= 'AWSKafkaTutorialTopic'
         self.security_protocol= 'SSL'
         self.api_version= (0,10,1)
-        
+        self.b= True
+
         print(self.api_version)
         print('bootstrap_servers: ', self.bootstrap_servers)
         print('topic: ', self.topic)
 
     def producer(self, data):
         print("producer..")
-        #producer = KafkaProducer(bootstrap_servers= self.bootstrap_servers )
-        producer = KafkaProducer(security_protocol= self.security_protocol, 
-                                 bootstrap_servers= self.bootstrap_servers,
-                                 api_version=self.api_version)
+        
+        producer= None
+        try: # bytes
+            data.decode()
+            print("bytes")
+            producer = KafkaProducer(security_protocol= self.security_protocol, 
+                                        bootstrap_servers= self.bootstrap_servers,
+                                        #value_serializer=lambda m: json.dumps(m).encode('ascii'),
+                                        api_version=self.api_version)
+        except:
+            print("json")
+            producer = KafkaProducer(security_protocol= self.security_protocol, 
+                                        bootstrap_servers= self.bootstrap_servers,
+                                        value_serializer=lambda m: json.dumps(m).encode('ascii'),
+                                        api_version=self.api_version)
 
-        topic= self.topic
         print(data)
+        producer.send(self.topic, data)
 
-        producer = KafkaProducer(value_serializer=lambda m: json.dumps(m).encode('ascii'))
-
-        producer.send(topic, data)
-
-        # -------------------read to send -------------------
         producer.flush()
-
-        #print(topic, dataJson)
-
-        return topic, data
+        # return topic, data
+        print("done")
 
     def consumer(self):
         print("consumer..")
-
 
         # To consume latest messages and auto-commit offsets
         consumer = KafkaConsumer(self.topic,                                
@@ -67,20 +71,15 @@ class KafkaClass:
             print("\n--------------consumer-------------")
             print('bootstrap_servers: ', self.bootstrap_servers)
             print('topic: ', self.topic)
-                    # message value and key are raw bytes -- decode if necessary!
-            # e.g., for unicode: `message.value.decode('utf-8')`
+            # topic= message.topic 
 
-            # print ("%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
-            #                                     message.offset, message.key,
-            #                                     message.value))
-            
-            topic= message.topic 
             b= message.value
-     
-            dataStr = b.decode('utf8').replace("'", '"')
-
-            data = json.loads(dataStr) # str2json
-            print(data)
+            try: #json
+                dataStr = b.decode('utf8').replace("'", '"')
+                data = json.loads(dataStr) # str2json
+                print(data)
+            except: # bytes
+                print(b)
 
             print("consumer done")
 
