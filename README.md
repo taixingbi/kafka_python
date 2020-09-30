@@ -26,7 +26,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-the-django-web-f
 ```
 ### share code
 ```
-sshfs ubuntu@ec2-54-91-224-152.compute-1.amazonaws.com:/home/ubuntu/code ~/kafka_research/producer -o IdentityFile=~/kindom/demo.pem -o allow_other
+sshfs ubuntu@ec2-54-91-224-152.compute-1.amazonaws.com:/home/ubuntu/code ~/kafka_research/code -o IdentityFile=~/kindom/demo.pem -o allow_other
 ```
 
 
