@@ -68,9 +68,4 @@ b-1.awskafkatutorialclust.bwvs6a.c10.kafka.us-east-1.amazonaws.com:9094,b-2.awsk
 ./kafka-console-consumer.sh --bootstrap-server BootstrapBrokerStringTls --consumer.config client.properties --topic webCollectData --from-beginning
 ```
 ./kafka-console-consumer.sh --bootstrap-server b-1.awskafkatutorialclust.bwvs6a.c10.kafka.us-east-1.amazonaws.com:9094,b-2.awskafkatutorialclust.bwvs6a.c10.kafka.us-east-1.amazonaws.com:9094,b-3.awskafkatutorialclust.bwvs6a.c10.kafka.us-east-1.amazonaws.com:9094 --consumer.config client.properties --topic webCollectData --from-beginning
-
-
-
-
-
-
+```
